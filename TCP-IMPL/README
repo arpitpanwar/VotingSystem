@@ -1,0 +1,63 @@
+TCP Implementation of Voting System:
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Payload Format: <FunctionName>\t(<Parameters>\t)?
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Port Number: 8811
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Data Structures Used at Server: 
+
+i. Map<int,bool> of voter list
+
+ii. List<string> of candidate list.
+
+iii. Map<string,int> of vote count.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Message Format:
+
+All the messages are transmitted as Strings and converted at the server/client to relevant formats
+The Returned values are the same as in the assignment writeup.
+
+i. zeroize(): 
+
+Sent: "ZEROIZE"
+
+Received: "TRUE" or "FALSE" or "ERROR"
+
+ii. addvoter(int voterid):
+
+Sent: "ADDVOTER \t <voterid>"
+
+Received: "OK" or "EXISTS" or "ERROR"
+
+iii. votefor(char* name, int voterid):
+
+Sent: "VOTEFOR \t <Name> \t <Voterid>"
+
+Received: "OK" or "EXISTS" or "NEW" or "NOTAVOTER" or "ALREADYVOTED" or "ERROR"
+
+iv. listcandidates():
+
+Sent: "CANDIDATES"
+
+Received: List of candidates or "" otherwise
+
+v. votecount(char* name):
+
+Sent: "COUNT \t <Name>"
+
+Received: Count of the votes received or -1 if the candidate doesnt exist. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Limitations:
+
+The total length of the payload cannot be greater than 2048 bytes.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

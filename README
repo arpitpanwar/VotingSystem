@@ -1,0 +1,27 @@
+Name: Arpit Panwar
+PennId: arpanwar@seas.upenn.edu
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Files included:
+
+TCP-IMPL: Folder contains the files with TCP Implementation. Please refer to README file in the directory for the implementation details.
+UDP-IMPL: Folder contains the files with UDP Implementation. Please refer to README file in the directory for the implementation details.
+RMI-IMPL: Folder contains the files with RPC Implementation. Please refer to README file in the directory for the implementation details.
+EXTRA: Folder contains files with Select/TCP Implementation. Please refer to README file in the directory for the implementation details. 
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+How to Compile:
+
+Run the following commands:
+i. make clean
+ii. make
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Special Instructions:
+
+None
+

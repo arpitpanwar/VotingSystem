@@ -1,0 +1,61 @@
+RPC Implementation of Voting System:
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Data Structures Used at Server:
+
+i. Map<int,bool> of voter list
+
+ii. List<string> of candidate list.
+
+iii. Map<string,int> of vote count.
+
+iv. struct voteparameters {
+	string name<64>;
+	int voterid;
+}
+
+Declared in the interface definition and used to transfer the data for votefor function.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Message Format:
+
+All the messages are transmitted as Strings and converted at the server/client to relevant formats
+The Returned values are the same as in the assignment writeup.
+
+i. zeroize(): 
+
+Sent: (NULL,<RPC_CLIENT>)
+
+Received: "TRUE" or "FALSE" or "ERROR"
+
+ii. addvoter(int voterid):
+
+Sent: (int*id, <RPC_CLIENT>)
+
+Received: "OK" or "EXISTS" or "ERROR"
+
+iii. votefor(char* name, int voterid):
+
+Sent: (voteparameters params,<RPC_CLIENT>)
+
+Received: "OK" or "EXISTS" or "NEW" or "NOTAVOTER" or "ALREADYVOTED" or "ERROR"
+
+iv. listcandidates():
+
+Sent: (NULL,<RPC_CLIENT>)
+
+Received: List of candidates or "" otherwise
+
+v. votecount(char* name):
+
+Sent: (char*name,<RPC_CLIENT>)
+
+Received: Count of the votes received or -1 if the candidate doesnt exist.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Limitations:
+
+The name of the candidate cannot be longer than 64 bytes
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
